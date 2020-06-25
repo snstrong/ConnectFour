@@ -1,0 +1,51 @@
+/* game board table */
+
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  color: gold;
+  letter-spacing: 0.25rem;
+  font-size: 3rem;
+  line-height: 1rem;
+}
+
+body {
+  background-color: grey;
+}
+
+#board td {
+  width: 60px;
+  height: 60px;
+  border: solid 2px gold;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  box-shadow: 2px 2px black ;
+}
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+
+.player1 {
+  background-color: red;
+}
+
+.player2 {
+  background-color: blue;
+}
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: dashed 1px lightgray;
+}
+
+#column-top td:hover {
+  background-color: gold;
+}
