@@ -9,36 +9,25 @@ const WIDTH = 7;
 const HEIGHT = 6;
 
 let currPlayer = 1; // active player: 1 or 2
-// let board;
 
-let board = [[],[],[],[],[],[]]; // array of rows, each row is array of cells  (board[y][x])
-//let board = new Array(HEIGHT).fill(null);
+let board;
 
-/** makeBoard: create in-JS board structure:
+// let board = new Array(HEIGHT).fill(null); // this did not work
+
+/** makeBoard: creates in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
+ *    set "board" to empty HEIGHT x WIDTH matrix array
  */
-
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
-  // let arr = [null, null, null, null, null, null, null];
-  //let arr = new Array(WIDTH);
-
-  // board.forEach(val => {
-  // val = arr;
- //  })
-  //board = new Array(HEIGHT).fill(new Array(WIDTH).fill(null));
-  console.log(board);
-  return board;
-  // board = [[HEIGHT][WIDTH]];
+  return board = [[],[],[],[],[],[]];
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
-  // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+  
   let htmlBoard = document.getElementById('board');
   
-  // TODO: add comment for this code
   // Creates top row where click events will happen
   var top = document.createElement("tr");
   top.setAttribute("id", "column-top");
@@ -90,7 +79,7 @@ function makePiece() {
 }
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+  // makes a div and inserts into correct table cell
   let cell = document.getElementById(`${y}-${x}`);
   cell.append(makePiece());
 }
@@ -98,12 +87,10 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 
 function endGame(msg) {
-  // TODO: pop up alert message
-  return window.setTimeout(window.alert(msg), 1000);
+  return window.setTimeout(window.alert(msg), 500);
 }
 
-/** handleClick: handle click of column top to play piece */
-
+/** handleClick: handle click on column top to play piece */
 function handleClick(evt) {
   // get x from ID of clicked cell
   let x = +evt.target.id;
@@ -132,12 +119,12 @@ function handleClick(evt) {
   switchPlayer();
 }
 
+// Updates value of currPlayer
 function switchPlayer() {
   return currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
-
 function checkForWin() {
   function _win(cells) {
     // Check four cells to see if they're all color of current player
@@ -154,8 +141,7 @@ function checkForWin() {
     );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
-
+  // Creates arrays of potentially winning cell combinations, then checks them against the win conditions
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
       let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
