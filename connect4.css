@@ -5,18 +5,32 @@ h1 {
   font-weight: 600;
   color: gold;
   letter-spacing: 0.25rem;
-  font-size: 3rem;
+  font-size: 3.2rem;
   line-height: 1rem;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
 }
 
 body {
   background-color: grey;
+  display: flex;
+  flex-direction: column;
+}
+
+#game {
+  align-self: center;
+  justify-self: center;
 }
 
 #board td {
   width: 60px;
   height: 60px;
-  border: solid 2px gold;
+  border: solid 3px gold;
+}
+
+#board {
+  border-collapse: collapse;
 }
 
 /* pieces are div within game table cells: draw as colored circles */
@@ -42,8 +56,12 @@ body {
 
 /* column-top is table row of clickable areas for each column */
 
+#column-top {
+  
+}
+
 #column-top td {
-  border: dashed 1px lightgray;
+  border: dashed 3px lightgray;
 }
 
 #column-top td:hover {
